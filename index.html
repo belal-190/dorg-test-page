@@ -1,77 +1,209 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f7f6">
-  <title>DORG | دُرج</title>
-  <meta name="description" content="انضم إلى اختبار تطبيق دُرج في خطوتين بسيطتين.">
-  <style>
-    :root{
-      --bg:#f4f7f6; --surface:#fff; --ink:#203331; --muted:#6c7e7a;
-      --brand:#397d70; --brand-dark:#285f56; --soft:#e7f1ee;
-      --line:#e4ece9; --shadow:0 18px 55px rgba(39,77,68,.09);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; min-height:100vh; color:var(--ink);
-      background:radial-gradient(circle at 50% -12%,#e1efeb 0,transparent 42%),var(--bg);
-      font-family:Tahoma,"Segoe UI",Arial,sans-serif;
-    }
-    .page{width:min(100% - 32px,660px);margin:auto;padding:44px 0 36px}
-    header{text-align:center;margin-bottom:27px}
-    .brand{font-size:clamp(2rem,7vw,2.8rem);font-weight:800;letter-spacing:.4px;color:var(--brand-dark)}
-    .brand span{font-weight:500;color:#91aaa3;padding:0 5px}
-    .intro{text-align:center;margin:0 auto 25px;max-width:490px;color:var(--muted);font-size:1rem;line-height:1.9}
-    .panel{background:var(--surface);border:1px solid var(--line);border-radius:25px;padding:22px;box-shadow:var(--shadow)}
-    .step{display:grid;grid-template-columns:42px 1fr;gap:13px;align-items:start}
-    .step + .step{border-top:1px solid var(--line);margin-top:21px;padding-top:21px}
-    .number{width:40px;height:40px;border-radius:13px;background:var(--soft);color:var(--brand-dark);display:grid;place-items:center;font-weight:800;font-size:1.05rem}
-    h2{font-size:1.08rem;margin:1px 0 7px}
-    .desc{margin:0 0 14px;color:var(--muted);font-size:.93rem;line-height:1.8}
-    .btn{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;background:var(--brand);color:#fff;border-radius:13px;padding:14px 16px;font-weight:700;font-size:.95rem;min-height:50px;transition:.18s}
-    .btn:hover{background:var(--brand-dark);transform:translateY(-1px)}
-    .btn .arrow{font-size:1.15rem}
-    .tip{display:flex;gap:10px;align-items:flex-start;background:#f0f6f4;border:1px solid #e2eeea;color:#536c65;border-radius:15px;padding:13px 15px;margin-top:17px;font-size:.88rem;line-height:1.8}
-    .tip b{color:var(--brand-dark);white-space:nowrap}
-    footer{text-align:center;color:#91a19d;font-size:.8rem;margin-top:22px}
-    @media(max-width:420px){.page{padding-top:32px}.panel{padding:18px}.desc{font-size:.9rem}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DORG | دُرج</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ min-height:100vh;
+ font-family:Tahoma,Arial,sans-serif;
+ color:#f4f7ff;
+ background:linear-gradient(145deg,#050817,#101b35,#07101e);
+ overflow-x:hidden;
+}
+.space{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.stars{
+ position:absolute;inset:-50%;
+ background-image:
+ radial-gradient(2px 2px at 40px 60px,#fff,transparent),
+ radial-gradient(1px 1px at 140px 180px,#9fd7ff,transparent),
+ radial-gradient(2px 2px at 280px 100px,#fff,transparent),
+ radial-gradient(1px 1px at 360px 260px,#b8ffe9,transparent);
+ background-size:450px 350px;
+ animation:stars 90s linear infinite;
+ opacity:.65;
+}
+@keyframes stars{
+ to{transform:translate(180px,120px)}
+}
+.planet{
+ position:absolute;
+ width:170px;height:170px;
+ border-radius:50%;
+ right:-65px;top:12%;
+ background:radial-gradient(circle at 30% 30%,#668db5,#263a68 55%,#10172e);
+ box-shadow:0 0 75px #5276b533;
+ animation:float 8s ease-in-out infinite;
+}
+.planet:after{
+ content:"";position:absolute;
+ inset:40px -25px;
+ border:8px solid #a4c6e044;
+ border-radius:50%;
+ transform:rotate(-25deg);
+}
+.astronaut{
+ position:absolute;left:7%;top:55%;
+ font-size:75px;
+ animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+ 0%,100%{transform:translateY(0) rotate(-5deg)}
+ 50%{transform:translateY(-22px) rotate(5deg)}
+}
+.container{
+ position:relative;z-index:1;
+ width:min(92%,650px);
+ margin:auto;padding:45px 0;
+}
+header{text-align:center;margin-bottom:25px}
+.logo{
+ font-size:48px;font-weight:900;
+ letter-spacing:2px;
+ text-shadow:0 0 30px #69dfc244;
+}
+.logo span{color:#69dfc2;font-weight:400}
+.tag{
+ display:inline-block;margin-top:12px;
+ padding:9px 16px;border-radius:30px;
+ border:1px solid #ffffff22;
+ color:#b9c8df;background:#ffffff09;
+ font-size:13px;
+}
+.intro{
+ text-align:center;color:#b5c1d6;
+ line-height:2;font-size:16px;
+ margin:25px 0;
+}
+.panel{
+ background:#14213bc9;
+ border:1px solid #ffffff20;
+ border-radius:24px;padding:23px;
+ backdrop-filter:blur(14px);
+ box-shadow:0 20px 65px #0005;
+}
+.step{
+ display:grid;grid-template-columns:43px 1fr;
+ gap:13px;
+}
+.step+ .step{
+ border-top:1px solid #ffffff20;
+ margin-top:23px;padding-top:23px;
+}
+.num{
+ width:42px;height:42px;
+ border-radius:14px;
+ display:grid;place-items:center;
+ color:#69dfc2;background:#69dfc21c;
+ font-weight:bold;font-size:19px;
+}
+h2{font-size:18px;margin:4px 0 10px}
+.desc{
+ color:#b5c1d6;line-height:1.9;
+ font-size:14px;margin:0 0 15px;
+}
+.btn{
+ display:flex;justify-content:center;
+ align-items:center;gap:10px;
+ padding:15px;border-radius:14px;
+ text-decoration:none;font-weight:bold;
+ color:#06221c;
+ background:linear-gradient(110deg,#69dfc2,#a0f0dc);
+ transition:.2s;
+}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.btn.blue{
+ background:linear-gradient(110deg,#91b4ff,#c3d6ff);
+ color:#101d39;
+}
+.note{
+ margin-top:18px;padding:15px;
+ border-radius:15px;
+ background:#8eb4ff12;
+ border:1px solid #8eb4ff30;
+ color:#c5d2e8;line-height:1.9;
+ font-size:13px;
+}
+footer{text-align:center;color:#8291aa;margin-top:25px;font-size:13px}
+@media(max-width:480px){
+ .container{padding-top:30px}
+ .logo{font-size:40px}
+ .panel{padding:18px}
+ .planet{width:115px;height:115px}
+ .astronaut{font-size:55px;top:70%}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important}
+}
+</style>
 </head>
 <body>
-  <main class="page">
-    <header>
-      <div class="brand">DORG <span>|</span> دُرج</div>
-    </header>
 
-    <p class="intro">ساعدنا في تجربة دُرج، التطبيق اللي بيجمع فواتيرك وضماناتك في مكان واحد. الموضوع بسيط وخطوتين بس:</p>
+<div class="space">
+ <div class="stars"></div>
+ <div class="planet"></div>
+ <div class="astronaut">🧑‍🚀</div>
+</div>
 
-    <section class="panel" aria-label="خطوات الانضمام للاختبار">
-      <article class="step">
-        <div class="number">١</div>
-        <div>
-          <h2>انضم لمجموعة المختبرين</h2>
-          <p class="desc">افتح الرابط واضغط على الانضمام للمجموعة بحساب Google اللي بتستخدمه على موبايلك.</p>
-          <a class="btn" href="https://groups.google.com/g/blx-closed-testers" target="_blank" rel="noopener">
-            الانضمام للمجموعة <span class="arrow">←</span>
-          </a>
-        </div>
-      </article>
+<main class="container">
 
-      <article class="step">
-        <div class="number">٢</div>
-        <div>
-          <h2>انضم للاختبار ونزّل دُرج</h2>
-          <p class="desc">بعد ما تنضم للمجموعة، افتح الرابط ده بنفس حساب Google، واضغط على الانضمام للاختبار، وبعدها نزّل التطبيق من Google Play.</p>
-          <a class="btn" href="https://play.google.com/apps/testing/com.belal.dorgapp" target="_blank" rel="noopener">
-            الانضمام للاختبار <span class="arrow">←</span>
-          </a>
-        </div>
-      </article>
-    </section>
+<header>
+ <div class="logo">DORG <span>|</span> دُرج</div>
+ <div class="tag">✦ تجربة بسيطة… وخطوتين بس</div>
+</header>
 
-    <div class="tip"><b>معلومة مهمة:</b><span>استخدم نفس حساب Google في الخطوتين، وخليك مشترك في الاختبار لمدة 14 يوم متواصل.</span></div>
-    <footer>شكرًا لمساعدتك — فريق DORG</footer>
-  </main>
+<p class="intro">
+خلّينا نجرّب <strong>DORG</strong> مع بعض!
+ساعدنا نختبر التطبيق اللي بيجمع فواتيرك وضماناتك في مكان واحد.
+</p>
+
+<section class="panel">
+
+ <div class="step">
+  <div class="num">١</div>
+  <div>
+   <h2>انضم لمجموعة المختبرين</h2>
+   <p class="desc">
+   افتح المجموعة واضغط على الانضمام، باستخدام حساب Google اللي هتستخدمه على موبايلك.
+   </p>
+   <a class="btn"
+   href="https://groups.google.com/g/blx-closed-testers"
+   target="_blank">
+   الانضمام لمجموعة المختبرين ←
+   </a>
+  </div>
+ </div>
+
+ <div class="step">
+  <div class="num">٢</div>
+  <div>
+   <h2>سجّل في الاختبار ونزّل التطبيق</h2>
+   <p class="desc">
+   بعد الانضمام للمجموعة، افتح رابط الاختبار بنفس الحساب واضغط على الانضمام للاختبار، وبعدها نزّل دُرج من Google Play.
+   </p>
+   <a class="btn blue"
+   href="https://play.google.com/apps/testing/com.belal.dorgapp"
+   target="_blank">
+   الانضمام للاختبار ←
+   </a>
+  </div>
+ </div>
+
+</section>
+
+<div class="note">
+✦ <strong>معلومة مهمة:</strong>
+استخدم نفس حساب Google في الخطوتين، واستمر مشتركًا في الاختبار لمدة 14 يومًا متواصلة.
+</div>
+
+<footer>
+شكرًا إنك جزء من التجربة ✦ DORG
+</footer>
+
+</main>
 </body>
 </html>
