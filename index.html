@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f7f6">
+  <title>DORG | دُرج</title>
+  <meta name="description" content="انضم إلى اختبار تطبيق دُرج في خطوتين بسيطتين.">
+  <style>
+    :root{
+      --bg:#f4f7f6; --surface:#fff; --ink:#203331; --muted:#6c7e7a;
+      --brand:#397d70; --brand-dark:#285f56; --soft:#e7f1ee;
+      --line:#e4ece9; --shadow:0 18px 55px rgba(39,77,68,.09);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; color:var(--ink);
+      background:radial-gradient(circle at 50% -12%,#e1efeb 0,transparent 42%),var(--bg);
+      font-family:Tahoma,"Segoe UI",Arial,sans-serif;
+    }
+    .page{width:min(100% - 32px,660px);margin:auto;padding:44px 0 36px}
+    header{text-align:center;margin-bottom:27px}
+    .brand{font-size:clamp(2rem,7vw,2.8rem);font-weight:800;letter-spacing:.4px;color:var(--brand-dark)}
+    .brand span{font-weight:500;color:#91aaa3;padding:0 5px}
+    .intro{text-align:center;margin:0 auto 25px;max-width:490px;color:var(--muted);font-size:1rem;line-height:1.9}
+    .panel{background:var(--surface);border:1px solid var(--line);border-radius:25px;padding:22px;box-shadow:var(--shadow)}
+    .step{display:grid;grid-template-columns:42px 1fr;gap:13px;align-items:start}
+    .step + .step{border-top:1px solid var(--line);margin-top:21px;padding-top:21px}
+    .number{width:40px;height:40px;border-radius:13px;background:var(--soft);color:var(--brand-dark);display:grid;place-items:center;font-weight:800;font-size:1.05rem}
+    h2{font-size:1.08rem;margin:1px 0 7px}
+    .desc{margin:0 0 14px;color:var(--muted);font-size:.93rem;line-height:1.8}
+    .btn{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;background:var(--brand);color:#fff;border-radius:13px;padding:14px 16px;font-weight:700;font-size:.95rem;min-height:50px;transition:.18s}
+    .btn:hover{background:var(--brand-dark);transform:translateY(-1px)}
+    .btn .arrow{font-size:1.15rem}
+    .tip{display:flex;gap:10px;align-items:flex-start;background:#f0f6f4;border:1px solid #e2eeea;color:#536c65;border-radius:15px;padding:13px 15px;margin-top:17px;font-size:.88rem;line-height:1.8}
+    .tip b{color:var(--brand-dark);white-space:nowrap}
+    footer{text-align:center;color:#91a19d;font-size:.8rem;margin-top:22px}
+    @media(max-width:420px){.page{padding-top:32px}.panel{padding:18px}.desc{font-size:.9rem}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="brand">DORG <span>|</span> دُرج</div>
+    </header>
+
+    <p class="intro">ساعدنا في تجربة دُرج، التطبيق اللي بيجمع فواتيرك وضماناتك في مكان واحد. الموضوع بسيط وخطوتين بس:</p>
+
+    <section class="panel" aria-label="خطوات الانضمام للاختبار">
+      <article class="step">
+        <div class="number">١</div>
+        <div>
+          <h2>انضم لمجموعة المختبرين</h2>
+          <p class="desc">افتح الرابط واضغط على الانضمام للمجموعة بحساب Google اللي بتستخدمه على موبايلك.</p>
+          <a class="btn" href="https://groups.google.com/g/blx-closed-testers" target="_blank" rel="noopener">
+            الانضمام للمجموعة <span class="arrow">←</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="number">٢</div>
+        <div>
+          <h2>انضم للاختبار ونزّل دُرج</h2>
+          <p class="desc">بعد ما تنضم للمجموعة، افتح الرابط ده بنفس حساب Google، واضغط على الانضمام للاختبار، وبعدها نزّل التطبيق من Google Play.</p>
+          <a class="btn" href="https://play.google.com/apps/testing/com.belal.dorgapp" target="_blank" rel="noopener">
+            الانضمام للاختبار <span class="arrow">←</span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <div class="tip"><b>معلومة مهمة:</b><span>استخدم نفس حساب Google في الخطوتين، وخليك مشترك في الاختبار لمدة 14 يوم متواصل.</span></div>
+    <footer>شكرًا لمساعدتك — فريق DORG</footer>
+  </main>
+</body>
+</html>
